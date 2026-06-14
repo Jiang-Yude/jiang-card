@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>江昱德 ・ 江江教練｜AI 知識架構師、隱性知識提煉師</title>
+<meta name="description" content="江江教練的 AI 名片。把這一頁丟給你的 AI，它會依你的身份替江江做自我介紹。流水的 AI 工具，鐵打的知識庫。">
+<style>
+  :root{
+    --bg:#FAF8F3; --ink:#211C16; --muted:#6E6456; --soft:#8A8070;
+    --accent:#6F4E37; --accent-ink:#4A3526; --accent-soft:#F0E8DC;
+    --line:#E5DCCE; --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,-apple-system,sans-serif;
+    font-size:18px; line-height:1.78; letter-spacing:.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:56px 24px 80px;}
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  .avatar{
+    width:78px; height:78px; border-radius:50%;
+    background:var(--accent-soft); color:var(--accent-ink);
+    display:flex; align-items:center; justify-content:center;
+    font-size:34px; font-weight:600; margin-bottom:22px;
+  }
+  h1{font-size:40px; line-height:1.2; margin:0 0 8px; font-weight:700; letter-spacing:.005em;}
+  .title{font-size:20px; color:var(--muted); margin:0 0 26px;}
+
+  .quote{
+    font-size:27px; line-height:1.5; font-weight:600; color:var(--accent);
+    margin:0 0 22px; padding-left:18px; border-left:4px solid var(--accent);
+  }
+  .lead{font-size:19px; margin:0 0 28px; color:var(--ink);}
+
+  .lecture{
+    display:flex; flex-wrap:wrap; align-items:center; gap:14px;
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:16px 20px; margin:0 0 8px; font-size:18px;
+  }
+  .lecture .txt{flex:1; min-width:240px; color:var(--ink);}
+  .btn{
+    display:inline-block; background:var(--accent); color:#fff;
+    padding:11px 20px; border-radius:10px; font-size:17px; font-weight:500;
+    border:none; cursor:pointer;
+  }
+  .btn:hover{background:var(--accent-ink); text-decoration:none;}
+  .btn.ghost{background:transparent; color:var(--accent); border:1px solid var(--accent);}
+  .btn.ghost:hover{background:var(--accent-soft);}
+
+  section{margin-top:46px;}
+  h2{font-size:25px; font-weight:700; margin:0 0 16px; letter-spacing:.01em;}
+  h2 .mark{color:var(--accent);}
+  p{margin:0 0 18px;}
+
+  .ai-panel{
+    background:var(--accent-soft); border:1px solid #E3D4BF; border-radius:16px;
+    padding:24px 24px 22px;
+  }
+  .ai-panel h2{margin-bottom:10px;}
+  .ai-panel p{font-size:18px; color:var(--accent-ink);}
+  .promptbox{
+    background:#fff; border:1px solid var(--line); border-radius:12px;
+    padding:16px 18px; font-size:18px; color:var(--ink); margin:16px 0 14px;
+  }
+
+  details{
+    border:1px solid var(--line); border-radius:14px; background:var(--card);
+    padding:0; margin:0 0 14px; overflow:hidden;
+  }
+  summary{
+    list-style:none; cursor:pointer; padding:18px 22px;
+    font-size:20px; font-weight:600; display:flex; align-items:center; justify-content:space-between;
+  }
+  summary::-webkit-details-marker{display:none;}
+  summary .plus{color:var(--accent); font-weight:600; font-size:24px; line-height:1;}
+  details[open] summary .plus{transform:rotate(45deg);}
+  .panel-body{padding:0 22px 22px; font-size:18px;}
+  .panel-body .small{color:var(--muted); font-size:17px; margin-top:6px;}
+
+  .creds{font-size:18px; color:var(--ink);}
+
+  .links{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px;}
+  .chip{
+    display:inline-flex; align-items:center; gap:7px;
+    border:1px solid var(--line); background:var(--card); border-radius:11px;
+    padding:11px 16px; font-size:18px; color:var(--ink);
+  }
+  .chip:hover{border-color:var(--accent); color:var(--accent); text-decoration:none;}
+
+  footer{margin-top:56px; padding-top:22px; border-top:1px solid var(--line); color:var(--soft); font-size:16px;}
+
+  @media (max-width:560px){
+    .wrap{padding:40px 18px 64px;}
+    h1{font-size:32px;}
+    .quote{font-size:23px;}
+  }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <div class="avatar">江</div>
+  <h1>江昱德 ・ 江江教練</h1>
+  <p class="title">AI 知識架構師、隱性知識提煉師</p>
+
+  <p class="quote">「流水的 AI 工具，鐵打的知識庫」</p>
+  <p class="lead">協助專業人士，只需會寫文件跟分類資料夾，就能打造自己的 AI 助理與知識庫。</p>
+
+  <div class="lecture">
+    <span class="txt">每月兩場講座，免費參加，請看知識官網的課表</span>
+    <a class="btn" href="https://ai-km-jiang.vercel.app/" target="_blank" rel="noopener">看課表</a>
+  </div>
+
+  <section class="ai-panel">
+    <h2>讓 AI 認識我</h2>
+    <p>把這一頁的網址丟進你的 ChatGPT 或 Claude，它會讀完我的資料，依你的身份替我做自我介紹，甚至幫我提案。這個頁面背後是一個技能包。</p>
+    <div class="promptbox" id="prompt">請讀這個網頁，然後依我的身份（我是＿＿），幫我認識江昱德，看看他能怎麼幫到我。</div>
+    <button class="btn ghost" id="copyBtn" type="button">複製這段話</button>
+  </section>
+
+  <section>
+    <h2>關於我</h2>
+    <p>讓 AI 來學你，你不用追著 AI 跑。我陪講師、顧問、教練，還有有經驗卻留不住的傳產跟中小企業，把講得出口、卻一直沒寫下來的判斷跟手感，提煉成 AI 讀得懂、用得上的東西。你會寫文件、會分資料夾就能開始，不用寫程式。</p>
+    <p>我做過二十年紀錄片跟攝影，工作一直是同一件事：看見有價值的東西，把它整理起來，讓它能再被用。到了 AI 時代我做的還是這件事，只是手上的工具換了。我相信無形資產越分享越豐盛。</p>
+  </section>
+
+  <section>
+    <h2>想知道我能怎麼幫<span class="mark">你</span>？選你的領域</h2>
+    <p class="creds" style="color:var(--muted); margin-bottom:18px;">公版在上面，這裡是各行各業的版本。</p>
+
+    <details>
+      <summary>中小企業<span class="plus">+</span></summary>
+      <div class="panel-body">
+        我幫像你這樣的公司，把每天靠人腦記著的流程跟判斷，整理成 AI 接得住的知識庫，再讓 AI 幫你處理那些重複的行政雜事。你不用會寫程式，會整理文件就能開始。先從一個最煩的小流程做起，做出感覺再往外擴。
+        <div class="small">常見切入點：把一份亂亂的資料變成老闆看得懂的報表。</div>
+      </div>
+    </details>
+
+    <details>
+      <summary>傳統產業、家族企業<span class="plus">+</span></summary>
+      <div class="panel-body">
+        我幫你趁老師傅還在，把他腦袋裡的手感跟判斷，提煉成 AI 跟新人都能用的知識。人還是核心，這只是把快帶不走的經驗留下來。你會整理文件就能開始，不用寫程式。
+        <div class="small">適合面臨接班、或老員工快退休的公司。</div>
+      </div>
+    </details>
+
+    <details>
+      <summary>扶輪社、商會、社團<span class="plus">+</span></summary>
+      <div class="panel-body">
+        我是台北永續影響力扶輪社的 AI 顧問。我幫社團把社友的專業跟社務的知識整理成 AI 用得上的知識庫，讓社友彼此更快認識、合作更容易，社務也更省力。
+        <div class="small">做過社團的永續報告書官網、社友個人介紹頁、課後成效報告。</div>
+      </div>
+    </details>
+  </section>
+
+  <section>
+    <h2>底氣</h2>
+    <p class="creds">iPAS 經濟部認證 AI 應用規劃師。台北永續影響力扶輪社、飛易行銷 AI 顧問。授課單位含嘉義縣政府、新北市衛生局、桃園市政府政風處、台北聯合醫院，以及台北科技大學、中央大學、淡江大學等。</p>
+  </section>
+
+  <section>
+    <h2>找我</h2>
+    <div class="links">
+      <a class="chip" href="https://line.me/R/ti/p/@713kczfc" target="_blank" rel="noopener">LINE 官方帳號（合作邀約）</a>
+      <a class="chip" href="https://www.threads.com/@jiang_yude_coach" target="_blank" rel="noopener">Threads</a>
+      <a class="chip" href="https://vocus.cc/salon/Jiang_Coach" target="_blank" rel="noopener">方格子</a>
+      <a class="chip" href="https://www.youtube.com/@aipkmcc" target="_blank" rel="noopener">YouTube</a>
+      <a class="chip" href="https://www.instagram.com/jiang_yude_coach/" target="_blank" rel="noopener">Instagram</a>
+      <a class="chip" href="https://ai-km-jiang.vercel.app/" target="_blank" rel="noopener">知識官網</a>
+    </div>
+  </section>
+
+  <footer>江昱德 ・ 江江教練　AI 知識架構師、隱性知識提煉師</footer>
+
+</main>
+<script>
+  document.getElementById('copyBtn').addEventListener('click', function(){
+    var txt = document.getElementById('prompt').innerText;
+    navigator.clipboard.writeText(txt).then(function(){
+      var b = document.getElementById('copyBtn');
+      b.textContent = '複製好了';
+      setTimeout(function(){ b.textContent = '複製這段話'; }, 1800);
+    });
+  });
+</script>
+</body>
+</html>
