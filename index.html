@@ -69,6 +69,30 @@
     background:#fff; border:1px solid var(--line); border-radius:12px;
     padding:16px 18px; font-size:18px; color:var(--ink); margin:16px 0 14px;
   }
+  .cmdbox{display:flex; gap:22px; align-items:center;}
+  .cmdbox-main{flex:1; min-width:0;}
+  .qr-side{flex:0 0 auto; display:flex; flex-direction:column; align-items:center; gap:6px; padding-left:22px; border-left:1px solid var(--line);}
+  .qr-thumb{display:inline-flex; align-items:center; justify-content:center; background:transparent; border:none; padding:0; cursor:zoom-in; line-height:0;}
+  .qr-thumb svg{display:block; width:96px; height:96px; transition:transform .15s;}
+  .qr-thumb:hover svg{transform:scale(1.04);}
+  .qr-side .cap{font-size:12px; color:var(--muted); line-height:1.2; font-weight:600; letter-spacing:.02em;}
+  @media(max-width:520px){
+    .cmdbox{flex-direction:column; align-items:stretch; gap:16px;}
+    .qr-side{flex-direction:row; justify-content:center; gap:12px; padding-left:0; padding-top:16px; border-left:none; border-top:1px solid var(--line);}
+  }
+  .qr-lightbox{
+    position:fixed; inset:0; z-index:50; display:none;
+    align-items:center; justify-content:center; padding:24px;
+    background:rgba(33,28,22,.72); cursor:zoom-out;
+  }
+  .qr-lightbox.open{display:flex;}
+  .qr-lightbox .box{
+    background:#fff; border-radius:20px; padding:clamp(20px,4vw,32px);
+    text-align:center; max-width:92vw;
+  }
+  .qr-lightbox svg{display:block; width:min(76vw,420px); height:auto; margin:0 auto;}
+  .qr-lightbox .lb-url{margin:16px 0 0; font-size:clamp(15px,2vw,20px); font-weight:700; color:var(--accent-ink); word-break:break-all;}
+  .qr-lightbox .lb-hint{margin:6px 0 0; font-size:14px; color:var(--muted);}
 
   details{
     border:1px solid var(--line); border-radius:14px; background:var(--card);
@@ -143,11 +167,19 @@
     <div style="font-size:15px;color:var(--accent);font-style:italic;margin-bottom:8px;">AI 接待台 ・ 名片快速導覽</div>
     <h2 style="font-size:25px;color:var(--accent-ink);line-height:1.35;margin:0 0 12px;">把這張名片丟給你常用的 AI，它就能依你的需求，告訴你我能怎麼幫你。</h2>
     <p style="margin:0 0 16px;">這張名片是設計給 AI 讀的。它讀完會先用自己的口吻中性介紹我，需要的話再用我的口吻、依你的情況幫你介紹。ChatGPT、Gemini、Claude、Codex 都讀得懂。</p>
-    <div class="promptbox">
-      <div style="font-size:14px;color:var(--accent);margin-bottom:9px;">指令　・　複製貼給你的 AI</div>
-      <div id="ai-prompt-text">請讀取這個網站的內容，再用江江教練的口吻為我介紹，並依我的需求帶我看：https://jiang-yude.github.io/jiang-card/</div>
+    <div class="promptbox cmdbox">
+      <div class="cmdbox-main">
+        <div style="font-size:14px;color:var(--accent);margin-bottom:9px;">指令　・　複製貼給你的 AI</div>
+        <div id="ai-prompt-text">請讀取這個網站的內容，再用江江教練的口吻為我介紹，並依我的需求帶我看：https://jiang-yude.github.io/jiang-card/</div>
+        <button class="btn" id="ai-copy-btn" type="button" style="margin-top:14px;">複製指令</button>
+      </div>
+      <div class="qr-side">
+        <button class="qr-thumb" id="qr-open" type="button" aria-label="放大 QR code">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 370" role="img" aria-label="QR code"><path transform="scale(10)" stroke="#211c16" d="M0 0.5h7m1 0h3m6 0h5m3 0h1m4 0h7m-37 1h1m5 0h1m1 0h1m1 0h2m1 0h3m2 0h3m2 0h1m1 0h4m1 0h1m5 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m4 0h2m4 0h1m1 0h1m1 0h2m1 0h3m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m3 0h1m1 0h2m3 0h1m1 0h4m1 0h4m2 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m3 0h1m2 0h1m1 0h2m1 0h1m1 0h3m7 0h1m1 0h3m1 0h1m-37 1h1m5 0h1m1 0h2m1 0h1m1 0h2m1 0h1m2 0h3m5 0h2m1 0h1m5 0h1m-37 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-29 1h2m4 0h1m1 0h1m1 0h1m1 0h1m3 0h1m3 0h1m-27 1h3m1 0h1m1 0h1m1 0h3m1 0h1m1 0h1m3 0h2m2 0h1m4 0h3m2 0h3m-34 1h1m3 0h5m1 0h1m2 0h2m2 0h2m1 0h3m1 0h1m1 0h1m1 0h1m-32 1h5m1 0h5m2 0h1m1 0h2m1 0h6m1 0h4m1 0h2m2 0h3m-37 1h5m2 0h2m1 0h1m3 0h1m1 0h1m1 0h1m4 0h1m2 0h1m1 0h1m1 0h1m2 0h1m2 0h1m-37 1h1m4 0h3m3 0h1m1 0h2m3 0h1m1 0h1m1 0h2m1 0h2m2 0h2m1 0h5m-37 1h6m1 0h1m5 0h1m1 0h1m1 0h3m4 0h2m3 0h1m3 0h2m-35 1h1m1 0h1m1 0h8m1 0h6m2 0h8m3 0h2m1 0h2m-36 1h3m1 0h1m1 0h3m6 0h2m1 0h1m1 0h2m5 0h3m4 0h2m-36 1h2m1 0h1m1 0h1m1 0h2m1 0h5m3 0h3m3 0h2m2 0h4m1 0h1m1 0h1m-37 1h2m1 0h1m1 0h1m1 0h3m1 0h3m1 0h4m1 0h2m3 0h1m2 0h2m1 0h1m2 0h1m-35 1h8m1 0h1m2 0h1m5 0h3m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m1 0h4m-35 1h1m1 0h1m11 0h1m2 0h1m3 0h2m2 0h2m2 0h2m3 0h1m-37 1h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h5m2 0h2m1 0h2m2 0h3m1 0h6m-35 1h1m1 0h1m4 0h3m1 0h2m2 0h1m1 0h1m3 0h5m5 0h1m1 0h2m-33 1h3m1 0h1m3 0h1m1 0h2m2 0h1m1 0h1m2 0h1m3 0h3m2 0h1m2 0h1m1 0h2m-37 1h1m2 0h3m1 0h3m4 0h1m1 0h2m2 0h2m3 0h1m5 0h1m-32 1h2m1 0h1m1 0h2m1 0h1m1 0h1m2 0h1m1 0h4m1 0h2m1 0h2m1 0h1m2 0h2m1 0h1m1 0h2m-36 1h6m1 0h1m1 0h1m1 0h3m3 0h1m1 0h1m1 0h2m2 0h1m5 0h1m2 0h2m-36 1h1m2 0h4m1 0h2m1 0h3m2 0h4m1 0h5m1 0h1m2 0h3m2 0h2m-37 1h1m2 0h3m2 0h1m1 0h1m3 0h1m1 0h1m1 0h1m2 0h3m3 0h3m5 0h2m-37 1h1m3 0h1m1 0h1m2 0h3m1 0h4m2 0h1m3 0h12m-27 1h3m1 0h1m2 0h1m3 0h2m2 0h1m3 0h2m3 0h1m-33 1h7m3 0h1m1 0h1m3 0h5m1 0h1m2 0h2m1 0h1m1 0h1m1 0h2m1 0h2m-37 1h1m5 0h1m2 0h2m1 0h1m1 0h4m4 0h1m1 0h1m1 0h1m1 0h1m3 0h1m2 0h2m-37 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m3 0h1m1 0h2m1 0h1m3 0h8m1 0h1m-35 1h1m1 0h3m1 0h1m1 0h9m4 0h2m1 0h2m4 0h1m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h7m1 0h4m2 0h1m4 0h3m1 0h1m2 0h1m1 0h1m-37 1h1m5 0h1m2 0h1m2 0h1m2 0h2m1 0h1m2 0h1m2 0h1m1 0h6m1 0h1m2 0h1m-37 1h7m2 0h2m2 0h9m2 0h3m2 0h3m1 0h4"/></svg>
+        </button>
+        <span class="cap">掃我看名片</span>
+      </div>
     </div>
-    <button class="btn" id="ai-copy-btn" type="button">複製指令</button>
     <p style="font-size:16px;color:var(--muted);margin:14px 0 0;">或者繼續往下看，下面有各行各業的版本可以挑一個開始。</p>
   </div>
 
@@ -282,6 +314,14 @@
   <footer>江昱德 ・ 江江教練　AI 知識架構師、隱性知識提煉師</footer>
 
 </main>
+
+<div class="qr-lightbox" id="qr-lightbox" aria-hidden="true">
+  <div class="box">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 370" role="img" aria-label="QR code to jiang-yude.github.io/jiang-card"><path transform="scale(10)" stroke="#211c16" d="M0 0.5h7m1 0h3m6 0h5m3 0h1m4 0h7m-37 1h1m5 0h1m1 0h1m1 0h2m1 0h3m2 0h3m2 0h1m1 0h4m1 0h1m5 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m4 0h2m4 0h1m1 0h1m1 0h2m1 0h3m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m3 0h1m1 0h2m3 0h1m1 0h4m1 0h4m2 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m3 0h1m2 0h1m1 0h2m1 0h1m1 0h3m7 0h1m1 0h3m1 0h1m-37 1h1m5 0h1m1 0h2m1 0h1m1 0h2m1 0h1m2 0h3m5 0h2m1 0h1m5 0h1m-37 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-29 1h2m4 0h1m1 0h1m1 0h1m1 0h1m3 0h1m3 0h1m-27 1h3m1 0h1m1 0h1m1 0h3m1 0h1m1 0h1m3 0h2m2 0h1m4 0h3m2 0h3m-34 1h1m3 0h5m1 0h1m2 0h2m2 0h2m1 0h3m1 0h1m1 0h1m1 0h1m-32 1h5m1 0h5m2 0h1m1 0h2m1 0h6m1 0h4m1 0h2m2 0h3m-37 1h5m2 0h2m1 0h1m3 0h1m1 0h1m1 0h1m4 0h1m2 0h1m1 0h1m1 0h1m2 0h1m2 0h1m-37 1h1m4 0h3m3 0h1m1 0h2m3 0h1m1 0h1m1 0h2m1 0h2m2 0h2m1 0h5m-37 1h6m1 0h1m5 0h1m1 0h1m1 0h3m4 0h2m3 0h1m3 0h2m-35 1h1m1 0h1m1 0h8m1 0h6m2 0h8m3 0h2m1 0h2m-36 1h3m1 0h1m1 0h3m6 0h2m1 0h1m1 0h2m5 0h3m4 0h2m-36 1h2m1 0h1m1 0h1m1 0h2m1 0h5m3 0h3m3 0h2m2 0h4m1 0h1m1 0h1m-37 1h2m1 0h1m1 0h1m1 0h3m1 0h3m1 0h4m1 0h2m3 0h1m2 0h2m1 0h1m2 0h1m-35 1h8m1 0h1m2 0h1m5 0h3m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m1 0h4m-35 1h1m1 0h1m11 0h1m2 0h1m3 0h2m2 0h2m2 0h2m3 0h1m-37 1h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h5m2 0h2m1 0h2m2 0h3m1 0h6m-35 1h1m1 0h1m4 0h3m1 0h2m2 0h1m1 0h1m3 0h5m5 0h1m1 0h2m-33 1h3m1 0h1m3 0h1m1 0h2m2 0h1m1 0h1m2 0h1m3 0h3m2 0h1m2 0h1m1 0h2m-37 1h1m2 0h3m1 0h3m4 0h1m1 0h2m2 0h2m3 0h1m5 0h1m-32 1h2m1 0h1m1 0h2m1 0h1m1 0h1m2 0h1m1 0h4m1 0h2m1 0h2m1 0h1m2 0h2m1 0h1m1 0h2m-36 1h6m1 0h1m1 0h1m1 0h3m3 0h1m1 0h1m1 0h2m2 0h1m5 0h1m2 0h2m-36 1h1m2 0h4m1 0h2m1 0h3m2 0h4m1 0h5m1 0h1m2 0h3m2 0h2m-37 1h1m2 0h3m2 0h1m1 0h1m3 0h1m1 0h1m1 0h1m2 0h3m3 0h3m5 0h2m-37 1h1m3 0h1m1 0h1m2 0h3m1 0h4m2 0h1m3 0h12m-27 1h3m1 0h1m2 0h1m3 0h2m2 0h1m3 0h2m3 0h1m-33 1h7m3 0h1m1 0h1m3 0h5m1 0h1m2 0h2m1 0h1m1 0h1m1 0h2m1 0h2m-37 1h1m5 0h1m2 0h2m1 0h1m1 0h4m4 0h1m1 0h1m1 0h1m1 0h1m3 0h1m2 0h2m-37 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m3 0h1m1 0h2m1 0h1m3 0h8m1 0h1m-35 1h1m1 0h3m1 0h1m1 0h9m4 0h2m1 0h2m4 0h1m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h7m1 0h4m2 0h1m4 0h3m1 0h1m2 0h1m1 0h1m-37 1h1m5 0h1m2 0h1m2 0h1m2 0h2m1 0h1m2 0h1m2 0h1m1 0h6m1 0h1m2 0h1m-37 1h7m2 0h2m2 0h9m2 0h3m2 0h3m1 0h4"/></svg>
+    <p class="lb-url">jiang-yude.github.io/jiang-card</p>
+    <p class="lb-hint">拿手機相機對準掃描　・　點畫面任一處關閉</p>
+  </div>
+</div>
 <script>
   (function(){
     var btn = document.getElementById('ai-copy-btn');
@@ -293,6 +333,14 @@
         navigator.clipboard.writeText(t).then(done).catch(done);
       } else { done(); }
     });
+  })();
+  (function(){
+    var open = document.getElementById('qr-open');
+    var lb = document.getElementById('qr-lightbox');
+    if(!open || !lb) return;
+    open.addEventListener('click', function(){ lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); });
+    lb.addEventListener('click', function(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') { lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); } });
   })();
 </script>
 </body>
