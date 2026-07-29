@@ -6,7 +6,7 @@ AI 知識架構師、隱性知識提煉師
 
 協助專業人士，只需會寫文件跟分類資料夾，就能打造自己的 AI 助理與知識庫。
 
-每月兩場講座，免費參加，請看知識官網的課表 https://ai-km-jiang.vercel.app/
+每月兩場講座，免費參加，請看知識官網的課表 https://jiangyude.com/
 
 ---
 
@@ -51,7 +51,7 @@ iPAS 經濟部認證 AI 應用規劃師。台北永續影響力扶輪社、飛�
 - YouTube：https://www.youtube.com/@aipkmcc
 - Instagram：https://www.instagram.com/jiang_yude_coach/
 - LINE 官方帳號（方案詢問、合作邀約）：https://line.me/R/ti/p/@713kczfc
-- 知識官網（課表、學習資源、技能包）：https://ai-km-jiang.vercel.app/
+- 知識官網（課表、學習資源、技能包）：https://jiangyude.com/
 - LINE 社群（免費加入）：https://line.me/R/ti/g2/V63_43ngbs_kq1mpVc9LlxXB-1kchHnwdsy3WQ
 - GitHub：https://github.com/Jiang-Yude
 - Portaly（所有連結入口）：https://portaly.cc/Jiang_Yude
