@@ -31,3 +31,13 @@ AI 知識架構師、隱性知識提煉師
 把這段話貼給你的 AI：
 
 > 請讀這個 repo 的 SKILL.md、llms.txt 跟 profile.md，先用一兩句告訴我這是什麼，再依我的身份（我是＿＿），以江昱德的商務 AI 分身身份幫我認識江昱德，看看他能怎麼幫到我。
+
+---
+
+## 維護者
+
+江昱德（Jiang Yude）<br>
+隱性知識提煉師<br>
+AI 知識架構師
+
+[知識官網](https://jiangyude.com/) · [Threads](https://www.threads.com/@jiang_yude_coach)
